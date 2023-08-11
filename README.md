@@ -53,4 +53,5 @@ dig my-instance.demo-radarhack.internal # not configured r53 internal zone ... a
 ```
 ## TODO
 - rename subnets ...
+- add var for account_id
 - tf for automation of shared account
