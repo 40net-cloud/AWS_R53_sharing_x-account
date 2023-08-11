@@ -1,4 +1,4 @@
-# Deno cross account R53 resolver sharing
+# Demo cross account R53 resolver sharing
 ## Deploy
 ```
 terraform init
