@@ -1,6 +1,13 @@
 # Demo cross account R53 resolver sharing
 ## Deploy
 ```
+cd ./tf
+```
+```
+cp terraform.tfvars.example terraform.tfvars
+```
+Update terraform.tfvars with access_key and secret_key
+```
 terraform init
 ```
 ```
