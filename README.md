@@ -6,7 +6,7 @@ terraform init
 ```
 terraform apply
 ```
-## Testing
+## Prerequisite
 ```
 rm -rf ./key.pem
 terraform output -raw private_key >key.pem
