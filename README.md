@@ -27,10 +27,10 @@ dig testing.radarhacker.com  #DNS forward to DigitalOceans hosted zone
 dig my-instance.demo-radarhack.internal #r53 internal zone
 ```
 
-## Check invite
+## Check invite on shared account
 Invite should be send to other account.
 
-## TODO
+## DNS testing on shared account
 The other account can access
 ```
 dig www.radarhack.com
@@ -41,3 +41,6 @@ dig testing.radarhacker.com  #DNS forward
 ...
 dig my-instance.demo-radarhack.internal # not configured r53 internal zone ... adding a rule to inbound endpoints will solve
 ```
+## TODO
+- rename subnets ...
+- tf for automation of shared account
