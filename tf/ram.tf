@@ -10,7 +10,7 @@ depends_on = [aws_route53_resolver_rule.radarhacker]
             --name MyRuleShare2 \
             --permission-arns arn:aws:ram::aws:permission/AWSRAMDefaultPermissionLicenseConfiguration \
             --resource-arns ${aws_route53_resolver_rule.radarhacker.arn} \
-            --principals 594379811663
+            --principals ${var.account-id-share}
             EOT
         }
 }

@@ -40,25 +40,25 @@ resource "aws_subnet" "PrivateSubnet1" {
     }
 }
 
-# Subnet HASyncSubnet1
-resource "aws_subnet" "HASyncSubnet1" {
+# Subnet PrivateSubnet3
+resource "aws_subnet" "PrivateSubnet3" {
     vpc_id = "${aws_vpc.main.id}"
     cidr_block = "10.0.3.0/24"
     map_public_ip_on_launch = "false" //it makes this a public subnet
     availability_zone = "${var.region}a"
     tags = {
-        Name = "${var.prefix}-HASyncSubnet1"
+        Name = "${var.prefix}-PrivateSubnet3"
     }
 }
 
-# Subnet HAMgmtSubnet1
-resource "aws_subnet" "HAMgmtSubnet1" {
+# Subnet PublicSubnet3
+resource "aws_subnet" "PublicSubnet3" {
     vpc_id = "${aws_vpc.main.id}"
     cidr_block = "10.0.4.0/24"
     map_public_ip_on_launch = "false" //it makes this a public subnet
     availability_zone = "${var.region}a"
     tags = {
-        Name = "${var.prefix}-HAMgmtSubnet1"
+        Name = "${var.prefix}-PublicSubnet3"
     }
 }
 
@@ -86,25 +86,25 @@ resource "aws_subnet" "PrivateSubnet2" {
     }
 }
 
-# Subnet HASyncSubnet2
-resource "aws_subnet" "HASyncSubnet2" {
+# Subnet PrivateSubnet4
+resource "aws_subnet" "PrivateSubnet4" {
     vpc_id = "${aws_vpc.main.id}"
     cidr_block = "10.0.30.0/24"
     map_public_ip_on_launch = "false" //it makes this a public subnet
     availability_zone = "${var.region}b"
     tags = {
-        Name = "${var.prefix}-HASyncSubnet2"
+        Name = "${var.prefix}-PrivateSubnet4"
     }
 }
 
-# Subnet HAMgmtSubnet2
-resource "aws_subnet" "HAMgmtSubnet2" {
+# Subnet PublicSubnet4
+resource "aws_subnet" "PublicSubnet4" {
     vpc_id = "${aws_vpc.main.id}"
     cidr_block = "10.0.40.0/24"
     map_public_ip_on_launch = "false" //it makes this a public subnet
     availability_zone = "${var.region}b"
     tags = {
-        Name = "${var.prefix}-HAMgmtSubnet2"
+        Name = "${var.prefix}-PublicSubnet4"
     }
 }
 
@@ -153,12 +153,12 @@ resource "aws_route_table_association" "b" {
 }
 
 resource "aws_route_table_association" "c" {
-  subnet_id      = aws_subnet.HASyncSubnet2.id
+  subnet_id      = aws_subnet.PrivateSubnet4.id
   route_table_id = aws_route_table.nat-rt.id
 }
 
 resource "aws_route_table_association" "d" {
-  subnet_id      = aws_subnet.HASyncSubnet1.id
+  subnet_id      = aws_subnet.PrivateSubnet3.id
   route_table_id = aws_route_table.nat-rt.id
 }
 

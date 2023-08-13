@@ -19,7 +19,6 @@ resource "aws_key_pair" "jumpbox_key" {
     }
   }
 
-
 resource "aws_instance" "jumpbox" {
   ami           = "${data.aws_ami.ubuntu_ami.image_id}"
   instance_type = "t2.micro"

@@ -52,6 +52,5 @@ dig testing.radarhacker.com  #DNS forward
 dig my-instance.demo-radarhack.internal # not configured r53 internal zone ... adding a rule to inbound endpoints will solve
 ```
 ## TODO
-- rename subnets ...
 - add var for account_id
 - tf for automation of shared account

@@ -20,3 +20,8 @@ variable "environment" {
   default = "development"
   description = "The name of the environment."
  }
+
+variable "account-id-share" {
+  default = "594379811663"
+  description = "AccountID to share resolver rules"
+ }

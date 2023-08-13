@@ -52,11 +52,14 @@ resource "aws_route53_resolver_endpoint" "inbound_ep" {
 
   ip_address {
     subnet_id = aws_subnet.PrivateSubnet1.id
+    ip        = "10.0.2.53"
   }
 
   ip_address {
-    subnet_id = aws_subnet.HASyncSubnet1.id
+    subnet_id = aws_subnet.PrivateSubnet3.id
+      ip        = "10.0.3.53"
   }
+
 
   tags = {
     Environment = "${var.prefix}-inbound-ep"
@@ -77,7 +80,7 @@ resource "aws_route53_resolver_endpoint" "outbound_ep" {
   }
 
   ip_address {
-    subnet_id = aws_subnet.HASyncSubnet1.id
+    subnet_id = aws_subnet.PrivateSubnet3.id
   }
 
   tags = {
