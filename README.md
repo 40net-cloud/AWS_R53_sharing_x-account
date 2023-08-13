@@ -54,7 +54,7 @@ export ARN=$(aws ram get-resource-share-invitations | jq -r .resourceShareInvita
 aws ram  accept-resource-share-invitation  --resource-share-invitation-arn $ARN
 
 # associate resolver rule with vpc-id
-export ID=$(aws route53resolver  list-resolver-rules | jq -r .ResolverRules[1].Id)
+export ID=$(aws route53resolver  list-resolver-rules | jq -r '.ResolverRules[] | select(.Name == "playground-radarhacker") | .Id')
 aws route53resolver  associate-resolver-rule --resolver-rule-id $ID --vpc-id XXXXXXXX
 ```
 
@@ -71,3 +71,6 @@ dig my-instance.demo-radarhack.internal # not configured r53 internal zone ... a
 ## TODO
 - tf for automation of shared account
 - add a selection criteria for ResolverRules id
+```
+aws route53resolver  list-resolver-rules | jq -r '.ResolverRules[] | select(.Name == "playground-radarhacker") | .Id'
+```
