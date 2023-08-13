@@ -70,3 +70,4 @@ dig my-instance.demo-radarhack.internal # not configured r53 internal zone ... a
 ```
 ## TODO
 - tf for automation of shared account
+- add a selection criteria for ResolverRules id
