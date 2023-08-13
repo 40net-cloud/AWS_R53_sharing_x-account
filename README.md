@@ -41,6 +41,23 @@ dig my-instance.demo-radarhack.internal #r53 internal zone
 Invite should be send to other account.
 
 ## DNS testing on shared account
+Accepting the share invite
+```
+#!/bin/bash
+
+export AWS_ACCESS_KEY_ID=xxxxx
+export AWS_SECRET_ACCESS_KEY=xxx
+export AWS_DEFAULT_REGION=eu-west-3
+
+#accept the resourceShareInvitations
+export ARN=$(aws ram get-resource-share-invitations | jq -r .resourceShareInvitations[].resourceShareInvitationArn)
+aws ram  accept-resource-share-invitation  --resource-share-invitation-arn $ARN
+
+# associate resolver rule with vpc-id
+export ID=$(aws route53resolver  list-resolver-rules | jq -r .ResolverRules[1].Id)
+aws route53resolver  associate-resolver-rule --resolver-rule-id $ID --vpc-id XXXXXXXX
+```
+
 The other account can access
 ```
 dig www.radarhack.com
