@@ -17,7 +17,7 @@ variable "prefix" {
   }
 
 variable "environment" {
-  default = "development"
+  default = "r53"
   description = "The name of the environment."
  }
 

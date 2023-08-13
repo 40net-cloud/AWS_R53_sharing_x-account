@@ -12,7 +12,7 @@ resource "aws_vpc" "main" {
   tags = {
     Terraform = "true"
     Environment = "dev"
-    Name = "${var.prefix}-r53"
+    Name = "${var.prefix}-${var.environment}"
   }
 }
 
@@ -25,7 +25,7 @@ resource "aws_subnet" "PublicSubnet1" {
     map_public_ip_on_launch = "true" //it makes this a public subnet
     availability_zone = "${var.region}a"
     tags = {
-        Name = "${var.prefix}-PublicSubnet1"
+        Name = "${var.prefix}-${var.environment}-PublicSubnet1"
     }
 }
 
@@ -36,7 +36,7 @@ resource "aws_subnet" "PrivateSubnet1" {
     map_public_ip_on_launch = "false" //it makes this a public subnet
     availability_zone = "${var.region}a"
     tags = {
-        Name = "${var.prefix}-PrivateSubnet1"
+        Name = "${var.prefix}-${var.environment}-PrivateSubnet1"
     }
 }
 
@@ -47,7 +47,7 @@ resource "aws_subnet" "PrivateSubnet3" {
     map_public_ip_on_launch = "false" //it makes this a public subnet
     availability_zone = "${var.region}a"
     tags = {
-        Name = "${var.prefix}-PrivateSubnet3"
+        Name = "${var.prefix}-${var.environment}-PrivateSubnet3"
     }
 }
 
@@ -58,7 +58,7 @@ resource "aws_subnet" "PublicSubnet3" {
     map_public_ip_on_launch = "false" //it makes this a public subnet
     availability_zone = "${var.region}a"
     tags = {
-        Name = "${var.prefix}-PublicSubnet3"
+        Name = "${var.prefix}-${var.environment}-PublicSubnet3"
     }
 }
 
@@ -71,7 +71,7 @@ resource "aws_subnet" "PublicSubnet2" {
     map_public_ip_on_launch = "true" //it makes this a public subnet
     availability_zone = "${var.region}b"
     tags = {
-        Name = "${var.prefix}-PublicSubnet2"
+        Name = "${var.prefix}-${var.environment}-PublicSubnet2"
     }
 }
 
@@ -82,7 +82,7 @@ resource "aws_subnet" "PrivateSubnet2" {
     map_public_ip_on_launch = "false" //it makes this a public subnet
     availability_zone = "${var.region}b"
     tags = {
-        Name = "${var.prefix}-PrivateSubnet2"
+        Name = "${var.prefix}-${var.environment}-PrivateSubnet2"
     }
 }
 
@@ -93,7 +93,7 @@ resource "aws_subnet" "PrivateSubnet4" {
     map_public_ip_on_launch = "false" //it makes this a public subnet
     availability_zone = "${var.region}b"
     tags = {
-        Name = "${var.prefix}-PrivateSubnet4"
+        Name = "${var.prefix}-${var.environment}-PrivateSubnet4"
     }
 }
 
@@ -104,7 +104,7 @@ resource "aws_subnet" "PublicSubnet4" {
     map_public_ip_on_launch = "false" //it makes this a public subnet
     availability_zone = "${var.region}b"
     tags = {
-        Name = "${var.prefix}-PublicSubnet4"
+        Name = "${var.prefix}-${var.environment}-PublicSubnet4"
     }
 }
 
@@ -112,7 +112,7 @@ resource "aws_subnet" "PublicSubnet4" {
 resource "aws_internet_gateway" "ig-main" {
   vpc_id = aws_vpc.main.id
   tags = {
-    Name = "${var.prefix}-igw"
+    Name = "${var.prefix}-${var.environment}-igw"
   }
 }
 
@@ -125,7 +125,7 @@ resource "aws_nat_gateway" "natgw-main" {
   allocation_id = aws_eip.nat_gateway.id
   subnet_id = aws_subnet.PublicSubnet1.id
   tags = {
-    Name = "${var.prefix}-gwNAT"
+    Name = "${var.prefix}-${var.environment}-gwNAT"
   }
 }
 
@@ -138,7 +138,7 @@ resource "aws_route_table" "nat-rt" {
     gateway_id = aws_nat_gateway.natgw-main.id
   }
   tags = {
-    Name = "${var.prefix}-nat-routable"
+    Name = "${var.prefix}-${var.environment}-nat-routable"
   }
 }
 
