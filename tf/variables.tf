@@ -22,6 +22,5 @@ variable "environment" {
  }
 
 variable "account-id-share" {
-  default = "594379811663"
   description = "AccountID to share resolver rules"
  }
