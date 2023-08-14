@@ -73,7 +73,3 @@ dig my-instance.demo-radarhack.internal # not configured r53 internal zone ... a
 ```
 ## TODO
 - tf for automation of shared account
-- add a selection criteria for ResolverRules id
-```
-aws route53resolver  list-resolver-rules | jq -r '.ResolverRules[] | select(.Name == "playground-radarhacker") | .Id'
-```
