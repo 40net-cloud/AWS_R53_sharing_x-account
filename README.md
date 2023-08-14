@@ -11,7 +11,7 @@ cd ./tf
 ```
 cp terraform.tfvars.example terraform.tfvars
 ```
-Update terraform.tfvars with access_key and secret_key
+Update `terraform.tfvars` with `access_key` and `secret_key`
 ```
 terraform init
 ```
