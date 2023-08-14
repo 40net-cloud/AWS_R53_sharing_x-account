@@ -1,4 +1,6 @@
 # Demo cross account R53 resolver sharing
+## Architecture
+![R53](images/playground.png)
 ## Deploy
 ```
 git clone https://github.com/xxradar/AWS_R53_sharing_x-account.git
