@@ -7,7 +7,7 @@ depends_on = [aws_route53_resolver_rule.radarhacker]
         command = <<-EOT
             aws ram create-resource-share \
             --region ${var.region} \
-            --name MyRuleShareFortigateCNFEMEA \
+            --name MyRuleShare \
             --permission-arns arn:aws:ram::aws:permission/AWSRAMDefaultPermissionLicenseConfiguration \
             --resource-arns ${aws_route53_resolver_rule.radarhacker.arn} \
             --principals ${var.account-id-share}
