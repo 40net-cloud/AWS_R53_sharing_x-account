@@ -1,5 +1,5 @@
 # Demo cross account R53 resolver sharing
-## Architecture
+## Architecture  
 ![R53](./images/playground-flow.drawio.png)
 ## Deploy
 ```
